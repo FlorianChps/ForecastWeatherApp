@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="size_fifty">50dp</dimen>
+    <dimen name="size_eight">8dp</dimen>
+
+    <dimen name="p_size_eighteen">18sp</dimen>
+    <dimen name="p_size_twenty_two">22sp</dimen>
+    <dimen name="p_size_twenty_six">26sp</dimen>
+    <dimen name="p_size_fourty_eight">48sp</dimen>
+</resources>
