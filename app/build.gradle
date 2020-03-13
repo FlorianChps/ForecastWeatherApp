@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -16,6 +17,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    dataBinding {
+        enabled = true
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -28,10 +37,35 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    // VIEWPAGER 2
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    // LOTTIE
+    implementation "com.airbnb.android:lottie:3.4.0"
+
+    // RXJAVA + RX ANDROID
+    implementation "io.reactivex.rxjava2:rxjava:2.2.17"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+
+    // RETROFIT2
+    implementation "com.squareup.retrofit2:retrofit:2.6.1"
+    implementation "com.squareup.retrofit2:converter-gson:2.6.1"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.6.1"
+
+    // ROOM
+    implementation "androidx.room:room-runtime:2.2.4"
+    implementation "androidx.room:room-rxjava2:2.2.4"
+    kapt "androidx.room:room-compiler:2.2.4"
+
+    // DAGGER 2
+    implementation "com.google.dagger:dagger:2.26"
+    implementation "com.google.dagger:dagger-android-support:2.26"
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    kapt "com.google.dagger:dagger-compiler:2.26"
 }
